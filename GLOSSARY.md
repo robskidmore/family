@@ -62,6 +62,10 @@ _Avoid_: task, job
 A Chore's list of Members who take turns being assigned it.
 _Avoid_: round robin, schedule
 
+**Notification**:
+A message the worker sends to a Member's device or inbox, such as a Chore reminder or an upcoming event. It goes out by Web Push, or by email when SMTP is set.
+_Avoid_: alert, ping
+
 ### Running the app
 
 **Self-hosted instance**:
