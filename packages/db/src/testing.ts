@@ -3,12 +3,12 @@ import { drizzle } from "drizzle-orm/pglite";
 import { migrate } from "drizzle-orm/pglite/migrator";
 
 import type { Database } from "./client";
+import { drizzleOptions } from "./client";
 import { migrationsFolder } from "./migrate";
-import * as schema from "./schema";
 
 /** A fresh in-process Postgres with every migration applied. */
 export async function createTestDb(): Promise<Database> {
-  const db = drizzle({ client: new PGlite(), schema, casing: "snake_case" });
+  const db = drizzle({ client: new PGlite(), ...drizzleOptions });
   await migrate(db, { migrationsFolder });
   return db;
 }
