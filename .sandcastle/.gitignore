@@ -1,0 +1,10 @@
+# Written by the runner on every render. Everything under .sandcastle/ is
+# either a secret, a derived artifact, or per-machine run state.
+.env
+.env.example
+generated/
+logs/
+runs.jsonl
+status.json
+trash/
+worktrees/

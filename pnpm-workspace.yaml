@@ -1,0 +1,37 @@
+packages:
+  - apps/*
+  - packages/*
+  - tooling/*
+
+catalog:
+  "@eslint/js": ^10.0.1
+  "@tailwindcss/postcss": ^4.3.5
+  "@tanstack/react-query": ^5.108.2
+  "@trpc/client": ^11.7.1
+  "@trpc/server": ^11.7.1
+  "@trpc/tanstack-react-query": ^11.7.1
+  "@types/node": ^24.0.0
+  eslint: ^10.15.0
+  prettier: ^3.10.1
+  tailwindcss: ^4.3.5
+  typescript: ^5.9.3
+  vitest: ^4.0.0
+  zod: ^4.6.7
+
+catalogs:
+  react19:
+    "@types/react": ^19.2.0
+    "@types/react-dom": ^19.2.0
+    react: ^19.2.0
+    react-dom: ^19.2.0
+
+linkWorkspacePackages: true
+
+allowBuilds:
+  "@tailwindcss/oxide": true
+  esbuild: true
+  sharp: true
+
+publicHoistPattern:
+  - "@ianvs/prettier-plugin-sort-imports"
+  - prettier-plugin-tailwindcss

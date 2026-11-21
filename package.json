@@ -1,0 +1,47 @@
+{
+  "name": "family",
+  "private": true,
+  "license": "AGPL-3.0-only",
+  "engines": {
+    "node": ">=24.12.0"
+  },
+  "packageManager": "pnpm@12.6.0",
+  "scripts": {
+    "build": "turbo run build",
+    "clean": "git clean -xdf node_modules",
+    "clean:workspaces": "turbo run clean",
+    "db:generate": "pnpm -F @family/db generate",
+    "db:migrate": "pnpm -F @family/db migrate",
+    "dev": "turbo watch dev --continue",
+    "format": "turbo run format --continue -- --cache --cache-location .cache/.prettiercache",
+    "format:fix": "turbo run format --continue -- --write --cache --cache-location .cache/.prettiercache",
+    "lint": "turbo run lint --continue -- --cache --cache-location .cache/.eslintcache",
+    "lint:fix": "turbo run lint --continue -- --fix --cache --cache-location .cache/.eslintcache",
+    "lint:ws": "pnpm dlx sherif@latest",
+    "prepare": "husky",
+    "sandcastle:bin": "npx --yes --package=git+ssh://git@github.com/robskidmore/herdr-sandcastle.git#v0.13.1 herdr-sandcastle",
+    "sandcastle": "pnpm sandcastle:bin run",
+    "sandcastle:plan": "pnpm sandcastle:bin plan",
+    "sandcastle:build-image": "pnpm sandcastle:bin build-image",
+    "sandcastle:history": "pnpm sandcastle:bin history",
+    "sandcastle:cleanup": "pnpm sandcastle:bin cleanup",
+    "sandcastle:cleanup:apply": "pnpm sandcastle:bin cleanup --apply",
+    "sandcastle:cleanup:force": "pnpm sandcastle:bin cleanup --force --apply",
+    "test": "turbo run test",
+    "typecheck": "turbo run typecheck",
+    "ui-add": "turbo run ui-add"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,mjs,mts,json,css,md}": "prettier --write --ignore-unknown"
+  },
+  "devDependencies": {
+    "@family/prettier-config": "workspace:*",
+    "dotenv-cli": "^10.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16",
+    "prettier": "catalog:",
+    "turbo": "^2.11.13",
+    "typescript": "catalog:"
+  },
+  "prettier": "@family/prettier-config"
+}

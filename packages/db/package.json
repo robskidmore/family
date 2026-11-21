@@ -1,0 +1,42 @@
+{
+  "name": "@family/db",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./client": "./src/client.ts",
+    "./migrate": "./src/migrate.ts",
+    "./schema": "./src/schema.ts",
+    "./testing": "./src/testing.ts"
+  },
+  "license": "AGPL-3.0-only",
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "generate": "drizzle-kit generate",
+    "lint": "eslint --flag unstable_native_nodejs_ts_config",
+    "migrate": "pnpm with-env tsx src/migrate-cli.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "with-env": "dotenv -e ../../.env --"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.44.7",
+    "postgres": "^3.4.7"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.3.0",
+    "@family/eslint-config": "workspace:*",
+    "@family/prettier-config": "workspace:*",
+    "@family/tsconfig": "workspace:*",
+    "@types/node": "catalog:",
+    "dotenv-cli": "^10.0.0",
+    "drizzle-kit": "^0.31.5",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
+    "tsx": "^4.20.0",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  },
+  "prettier": "@family/prettier-config"
+}
